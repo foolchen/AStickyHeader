@@ -1,6 +1,4 @@
-package dev.dworks.libs.astickyheader.demo;
-
-import java.util.ArrayList;
+package com.foolchen.astickyheader.demo;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,36 +8,36 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
-import dev.dworks.libs.astickyheader.R;
-import dev.dworks.libs.astickyheader.SimpleSectionedGridAdapter;
-import dev.dworks.libs.astickyheader.SimpleSectionedGridAdapter.Section;
-public class GridActivity extends CacheActivity {
+import android.widget.ListView;
+import android.widget.TextView;
+import dev.dworks.libs.astickyheader.SimpleSectionedListAdapter;
+import dev.dworks.libs.astickyheader.SimpleSectionedListAdapter.Section;
 
+import java.util.ArrayList;
 
-	private GridView grid;
+public class ListActivity extends CacheActivity {
+	private ListView list;
 	private ImageAdapter mAdapter;
 	private ArrayList<Section> sections = new ArrayList<Section>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_grid);
+		setContentView(R.layout.activity_list);
 		initControls();
 	}
 
 	private void initControls() {
-		grid = (GridView)findViewById(R.id.grid);
+		list = (ListView)findViewById(R.id.list);
 		mAdapter = new ImageAdapter(this);
 		for (int i = 0; i < mHeaderPositions.length; i++) {
 			sections.add(new Section(mHeaderPositions[i], mHeaderNames[i]));
 		}
-		SimpleSectionedGridAdapter simpleSectionedGridAdapter = new SimpleSectionedGridAdapter(this, mAdapter,
-				R.layout.grid_item_header, R.id.header_layout, R.id.header);
-		simpleSectionedGridAdapter.setGridView(grid);
+		SimpleSectionedListAdapter simpleSectionedGridAdapter = new SimpleSectionedListAdapter(this, mAdapter,
+				R.layout.list_item_header, R.id.header);
 		simpleSectionedGridAdapter.setSections(sections.toArray(new Section[0]));
-		grid.setAdapter(simpleSectionedGridAdapter);
+		list.setAdapter(simpleSectionedGridAdapter);
 	}
 	
 	@Override
@@ -74,13 +72,15 @@ public class GridActivity extends CacheActivity {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			ImageView image;
-			
+			TextView name;
 			if (convertView == null) {
-				convertView = mInflater.inflate(R.layout.grid_item, parent, false);
+				convertView = mInflater.inflate(R.layout.list_item, parent, false);
 			}
 
 			image = ViewHolder.get(convertView, R.id.image);
 			loadBitmap(mImageIds[position], image);
+			name = ViewHolder.get(convertView, R.id.name);
+			name.setText("A Cute Cat"+(position + 1));
 			return convertView;
 		}
 

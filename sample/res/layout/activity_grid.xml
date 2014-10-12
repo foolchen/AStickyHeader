@@ -23,12 +23,12 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="0dp" />
 
-    <com.google.ads.AdView
+    <!--<com.google.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         ads:adSize="SMART_BANNER"
         ads:adUnitId="ca-app-pub-6407484780907805/1247317671"
-        ads:loadAdOnCreate="true" />
+        ads:loadAdOnCreate="true" />-->
 
 </LinearLayout>

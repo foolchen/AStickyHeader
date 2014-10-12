@@ -1,6 +1,4 @@
-package dev.dworks.libs.astickyheader.demo;
-
-import java.util.ArrayList;
+package com.foolchen.astickyheader.demo;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -12,18 +10,11 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
+import android.view.*;
+import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.BaseAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
-import dev.dworks.libs.astickyheader.R;
+
+import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity implements OnItemClickListener {
 
@@ -57,7 +48,7 @@ public class MainActivity extends ActionBarActivity implements OnItemClickListen
 	
 	private ListAdapter getSampleAdapter() {
 		ArrayList<ActivityInfo> items = new ArrayList<ActivityInfo>();
-		final String thisClazzName = getClass().getName();
+		final String thisClazzName = ((Object)this).getClass().getName();
 
 		try {
 			PackageInfo pInfo = getPackageManager().getPackageInfo(

@@ -1,6 +1,4 @@
-package dev.dworks.libs.astickyheader.demo;
-
-import java.lang.ref.WeakReference;
+package com.foolchen.astickyheader.demo;
 
 import android.annotation.SuppressLint;
 import android.content.res.Resources;
@@ -17,7 +15,8 @@ import android.view.MenuItem;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ImageView;
-import dev.dworks.libs.astickyheader.R;
+
+import java.lang.ref.WeakReference;
 
 public class CacheActivity extends ActionBarActivity implements OnScrollListener {
 
@@ -185,7 +184,7 @@ public class CacheActivity extends ActionBarActivity implements OnScrollListener
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
         // Pause fetcher to ensure smoother scrolling when flinging
-        if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_FLING) {
+        if (scrollState == OnScrollListener.SCROLL_STATE_FLING) {
             // Before Honeycomb pause image loading on scroll to help with performance
             if (!(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)) {
                 setPauseWork(true);

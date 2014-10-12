@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package dev.dworks.libs.astickyheader.demo;
+package com.foolchen.astickyheader.demo;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -22,7 +22,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import dev.dworks.libs.astickyheader.R;
 
 public class AboutActivity extends ActionBarActivity {
 
